@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { db } from "./db";
 import { platformUsers } from "@shared/schema";
 import bcrypt from "bcrypt";
@@ -71,3 +72,14 @@ export async function seedDefaultAdmin() {
     throw error; // Re-throw to surface the error
   }
 }
+
+// Run the seed when this file is executed directly
+seedDefaultAdmin()
+  .then(() => {
+    console.log("✅ Seeding completed successfully!");
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error("❌ Seeding failed:", error);
+    process.exit(1);
+  });
