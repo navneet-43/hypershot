@@ -31,19 +31,25 @@ if (isNeonDatabase) {
   db = drizzle(pool, { schema });
   console.log('🌐 Connected to Neon cloud database');
 } else {
-  // Use standard pg driver for local PostgreSQL
+  // Use standard pg driver for local/cloud PostgreSQL
   const pg = await import('pg');
   const { drizzle } = await import('drizzle-orm/node-postgres');
+  
+  // Check if this is a cloud database (Render, etc.) that requires SSL
+  const isCloudDatabase = process.env.DATABASE_URL?.includes('render.com') || 
+                          process.env.DATABASE_URL?.includes('amazonaws.com') ||
+                          process.env.NODE_ENV === 'production';
   
   pool = new pg.default.Pool({ 
     connectionString: process.env.DATABASE_URL,
     max: 10,
     idleTimeoutMillis: 30000,
     connectionTimeoutMillis: 10000,
+    ssl: isCloudDatabase ? { rejectUnauthorized: false } : false,
   });
   
   db = drizzle(pool, { schema });
-  console.log('🏠 Connected to local PostgreSQL database');
+  console.log(isCloudDatabase ? '☁️ Connected to cloud PostgreSQL database (SSL)' : '🏠 Connected to local PostgreSQL database');
 }
 
 // Graceful shutdown - close pool on process termination
