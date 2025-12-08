@@ -3,15 +3,26 @@ dist
 .DS_Store
 server/public
 vite.config.ts.*
-*.tar.gz.env
-*.log
+*.tar.gz
 
-# Large files
+# Environment files - NEVER commit these!
+.env
+.env.local
+.env.production
+
+# Log files
+*.log
+pglite-debug.log
+
+# Large media files
 *.mp4
 *.mov
 *.avi
+
+# Temp directories
 server/tmp/
 temp/
-*.log
+
+# Local/config directories
 .local/
 .config/
