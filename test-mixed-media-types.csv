@@ -1,0 +1,4 @@
+content,mediaType,mediaUrl,publishTime,labels,language
+"Regular video upload test - chunked upload",video,https://drive.google.com/file/d/1NJ4yyHfcm8mXmAkF9Blq1O2HE-U6SOPV/view?usp=drive_link,2025-08-10 20:52:00,video-test,ta
+"Reel upload test - with validation and upscaling",reel,https://drive.google.com/file/d/1NJ4yyHfcm8mXmAkF9Blq1O2HE-U6SOPV/view?usp=drive_link,2025-08-10 20:53:00,reel-test,ta
+"Another video test - chunked system",video,https://drive.google.com/file/d/1Fl_HSrPtUiIPeNpaGJNrZ_nQc2iWhFz6/view?usp=drive_link,2025-08-10 20:54:00,mixed-test,en

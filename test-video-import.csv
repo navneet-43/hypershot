@@ -1,0 +1,3 @@
+Content,Scheduled Date,Custom Labels,Language,Media URL,Media Type
+"Testing bulk video import with actual file uploads","2025-06-19 8:15 PM","Test Video","English","https://www.youtube.com/watch?v=dQw4w9WgXcQ","video"
+"Second video test for file upload verification","2025-06-19 8:30 PM","Bulk Upload","English","https://www.youtube.com/watch?v=SzjGi6wcdy0","video"

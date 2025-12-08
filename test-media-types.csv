@@ -1,0 +1,5 @@
+content,scheduledFor,accountName,customLabels,language,mediaUrl,mediaType
+"Test Reel Post",2025-08-10 21:00:00,Alright Tamil,reel,EN,https://drive.google.com/file/d/test123/view,reel
+"Test Image Post",2025-08-10 21:15:00,Alright Tamil,image,EN,https://drive.google.com/file/d/test456/view,image
+"Test Video Post",2025-08-10 21:30:00,Alright Tamil,video,EN,https://drive.google.com/file/d/test789/view,video
+"Test Photo Post",2025-08-10 21:45:00,Alright Tamil,photo,EN,https://drive.google.com/file/d/test101/view,photo

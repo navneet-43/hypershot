@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 221 44% 49%; /* FB Blue */
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  --chart-1: 221 44% 49%;
+  --chart-2: 142 76% 36%;
+  --chart-3: 31 100% 60%;
+  --chart-4: 0 100% 61%;
+  --chart-5: 270 59% 58%;
+  
+  /* Custom FB Publisher Colors */
+  --fb-blue: 221 44% 49%;
+  --fb-green: 142 76% 36%;
+  --fb-light-gray: 0 0% 96%;
+  --fb-gray: 240 5% 91%;
+  --fb-dark-gray: 220 5% 79%;
+  --fb-error: 0 100% 71%;
+  --fb-warning: 40 100% 66%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 221 44% 49%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    @apply h-full min-h-screen overflow-auto;
+  }
+
+  /* Fix popover scroll blocking - target specific popover layers */
+  [data-radix-popper-content-wrapper] {
+    pointer-events: none !important;
+  }
+  
+  [data-radix-popper-content-wrapper] > * {
+    pointer-events: auto !important;
+  }
+  
+  /* Ensure body can scroll when popover is open */
+  body {
+    overflow: auto !important;
+    overscroll-behavior: auto !important;
+  }
+  
+  /* Prevent popover portal from blocking scroll */
+  [data-radix-popover-content] {
+    pointer-events: auto;
+  }
+
+  /* Allow scroll events to pass through the overlay */
+  [data-radix-popover-content]:not(:focus-within) {
+    pointer-events: none;
+  }
+
+  [data-radix-popover-content]:not(:focus-within) > * {
+    pointer-events: auto;
+  }
+
+  /* Specific fix for calendar components in popovers */
+  [data-radix-popover-content] .react-day-picker {
+    pointer-events: auto;
+  }
+
+  /* Critical fix: Allow scroll events on body even when popover is open */
+  html, body {
+    touch-action: manipulation !important;
+  }
+  
+  /* Prevent scroll lock on mobile and desktop */
+  body[data-scroll-locked] {
+    overflow: auto !important;
+  }
+
+  /* Override Radix scroll locking */
+  [data-radix-scroll-area-viewport] {
+    overscroll-behavior: auto !important;
+  }
+
+  body {
+    @apply font-sans antialiased bg-[#F0F2F5] text-foreground;
+  }
+}
+
+/* Custom classes for the FB Publisher app */
+.bg-fb-blue {
+  background-color: #4267B2;
+}
+
+.bg-fb-green {
+  background-color: #42B72A;
+}
+
+.bg-fb-light-gray {
+  background-color: #F0F2F5;
+}
+
+.bg-fb-gray {
+  background-color: #E4E6EB;
+}
+
+.bg-fb-dark-gray {
+  background-color: #BEC3C9;
+}
+
+.text-fb-blue {
+  color: #4267B2;
+}
+
+.text-fb-green {
+  color: #42B72A;
+}
+
+.text-fb-error {
+  color: #FF6B6B;
+}
+
+.text-fb-warning {
+  color: #FFC857;
+}
+
+.border-fb-gray {
+  border-color: #E4E6EB;
+}
+
+.hover\:bg-fb-light-gray:hover {
+  background-color: #F0F2F5;
+}
+
+.hover\:text-fb-error:hover {
+  color: #FF6B6B;
+}

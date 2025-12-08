@@ -1,0 +1,140 @@
+2025-11-29 17:57:15.21
+73c75822
+System
+metasidecar: loaded enterprise status from environment is_enterprise=false
+2025-11-29 17:57:15.23
+73c75822
+User
+ERROR: ld.so: object '/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so' cannot be loaded as audit interface: cannot open shared object file; ignored.
+2025-11-29 17:57:15.23
+73c75822
+User
+sh: 1: node: not found
+2025-11-29 17:57:15.23
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:15.31
+73c75822
+User
+ERROR: ld.so: object '/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so' cannot be loaded as audit interface: cannot open shared object file; ignored.
+2025-11-29 17:57:15.31
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:15.31
+73c75822
+User
+sh: 1: node: not found
+2025-11-29 17:57:15.42
+73c75822
+User
+ERROR: ld.so: object '/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so' cannot be loaded as audit interface: cannot open shared object file; ignored.
+2025-11-29 17:57:15.42
+73c75822
+User
+sh: 1: node: not found
+2025-11-29 17:57:15.42
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:15.74
+73c75822
+User
+ERROR: ld.so: object '/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so' cannot be loaded as audit interface: cannot open shared object file; ignored.
+2025-11-29 17:57:15.74
+73c75822
+User
+sh: 1: node: not found
+2025-11-29 17:57:15.74
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:15.76
+73c75822
+User
+ERROR: ld.so: object '/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so' cannot be loaded as audit interface: cannot open shared object file; ignored.
+2025-11-29 17:57:15.76
+73c75822
+User
+sh: 1: node: not found
+2025-11-29 17:57:15.77
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:16.99
+73c75822
+User
+ERROR: ld.so: object '/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so' cannot be loaded as audit interface: cannot open shared object file; ignored.
+2025-11-29 17:57:17.00
+73c75822
+User
+sh: 1: node: not found
+2025-11-29 17:57:17.00
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:17.99
+73c75822
+User
+ERROR: ld.so: object '/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so' cannot be loaded as audit interface: cannot open shared object file; ignored.
+2025-11-29 17:57:18.00
+73c75822
+User
+node: not found
+2025-11-29 17:57:18.00
+73c75822
+User
+sh: 1:
+2025-11-29 17:57:18.00
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:19.90
+73c75822
+User
+ERROR: ld.so: object '/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so' cannot be loaded as audit interface: cannot open shared object file; ignored.
+2025-11-29 17:57:19.90
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:19.90
+73c75822
+User
+sh: 1: node: not found
+2025-11-29 17:57:21.06
+73c75822
+User
+ERROR: ld.so: object '/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so' cannot be loaded as audit interface: cannot open shared object file; ignored.
+2025-11-29 17:57:21.07
+73c75822
+User
+sh: 1: node: not found
+2025-11-29 17:57:21.07
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:21.07
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:21.07
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:28.44
+73c75822
+User
+ERROR: ld.so: object '/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so' cannot be loaded as audit interface: cannot open shared object file; ignored.
+2025-11-29 17:57:28.45
+73c75822
+User
+sh: 1: node: not found
+2025-11-29 17:57:28.45
+73c75822
+System
+command finished with error [sh -c NODE_ENV=production node dist/index.js]: exit status 127
+2025-11-29 17:57:28.53
+73c75822
+System
+crash loop detected

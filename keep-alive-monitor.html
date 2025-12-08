@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialFlow Keep-Alive Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .online {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .offline {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .monitor-info {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .ping-log {
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ SocialFlow Keep-Alive Monitor</h1>
+        
+        <div class="monitor-info">
+            <h3>📊 Monitor Status</h3>
+            <p><strong>Target URL:</strong> <span id="target-url">Loading...</span></p>
+            <p><strong>Monitor Interval:</strong> 3 minutes</p>
+            <p><strong>Last Check:</strong> <span id="last-check">Never</span></p>
+            <p><strong>Uptime:</strong> <span id="uptime">Calculating...</span></p>
+        </div>
+
+        <div id="status" class="status offline">
+            🔴 Status: Checking...
+        </div>
+
+        <div>
+            <button onclick="manualPing()">🏓 Manual Ping</button>
+            <button onclick="toggleMonitor()">⏸️ Pause Monitor</button>
+            <button onclick="clearLog()">🗑️ Clear Log</button>
+        </div>
+
+        <h3>📋 Ping Log</h3>
+        <div id="ping-log" class="ping-log"></div>
+    </div>
+
+    <script>
+        // Configuration
+        const REPLIT_URL = 'https://b781679d-4a63-4962-b0b3-454a3c55c07c-00-22vmnl02o2c4l.picard.replit.dev';
+        const PING_INTERVAL = 1 * 60 * 1000; // 1 minute - MORE AGGRESSIVE
+        
+        let monitorInterval = null;
+        let isMonitoring = true;
+        let startTime = Date.now();
+        let successCount = 0;
+        let totalPings = 0;
+
+        // Initialize
+        document.getElementById('target-url').textContent = REPLIT_URL;
+        startMonitoring();
+        updateUptime();
+        setInterval(updateUptime, 30000); // Update uptime every 30 seconds
+
+        function log(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const logElement = document.getElementById('ping-log');
+            logElement.innerHTML += `[${timestamp}] ${message}\n`;
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+
+        async function pingServer() {
+            const startTime = Date.now();
+            totalPings++;
+            
+            try {
+                const response = await fetch(`${REPLIT_URL}/api/health`, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache'
+                });
+                
+                const responseTime = Date.now() - startTime;
+                
+                if (response.ok) {
+                    successCount++;
+                    const data = await response.json();
+                    
+                    document.getElementById('status').className = 'status online';
+                    document.getElementById('status').innerHTML = '🟢 Status: Online';
+                    
+                    log(`✅ Ping successful (${responseTime}ms) - Server uptime: ${Math.floor(data.uptime / 60)}m`);
+                    document.getElementById('last-check').textContent = new Date().toLocaleString();
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                const responseTime = Date.now() - startTime;
+                
+                document.getElementById('status').className = 'status offline';
+                document.getElementById('status').innerHTML = '🔴 Status: Offline';
+                
+                log(`❌ Ping failed (${responseTime}ms) - ${error.message}`);
+                document.getElementById('last-check').textContent = new Date().toLocaleString();
+            }
+        }
+
+        function startMonitoring() {
+            if (monitorInterval) {
+                clearInterval(monitorInterval);
+            }
+            
+            // Initial ping
+            pingServer();
+            
+            // Set up interval
+            monitorInterval = setInterval(pingServer, PING_INTERVAL);
+            isMonitoring = true;
+            
+            log('🚀 Keep-alive monitoring started');
+        }
+
+        function toggleMonitor() {
+            if (isMonitoring) {
+                clearInterval(monitorInterval);
+                isMonitoring = false;
+                document.querySelector('button[onclick="toggleMonitor()"]').textContent = '▶️ Resume Monitor';
+                log('⏸️ Monitoring paused');
+            } else {
+                startMonitoring();
+                document.querySelector('button[onclick="toggleMonitor()"]').textContent = '⏸️ Pause Monitor';
+                log('▶️ Monitoring resumed');
+            }
+        }
+
+        function manualPing() {
+            log('🔍 Manual ping triggered');
+            pingServer();
+        }
+
+        function clearLog() {
+            document.getElementById('ping-log').innerHTML = '';
+            log('🗑️ Log cleared');
+        }
+
+        function updateUptime() {
+            const uptimeMs = Date.now() - startTime;
+            const uptimeMinutes = Math.floor(uptimeMs / 60000);
+            const uptimeHours = Math.floor(uptimeMinutes / 60);
+            const remainingMinutes = uptimeMinutes % 60;
+            
+            let uptimeText = '';
+            if (uptimeHours > 0) {
+                uptimeText = `${uptimeHours}h ${remainingMinutes}m`;
+            } else {
+                uptimeText = `${uptimeMinutes}m`;
+            }
+            
+            if (totalPings > 0) {
+                const successRate = ((successCount / totalPings) * 100).toFixed(1);
+                uptimeText += ` (${successRate}% success rate)`;
+            }
+            
+            document.getElementById('uptime').textContent = uptimeText;
+        }
+
+        // Prevent page from going to sleep
+        setInterval(() => {
+            // Keep browser tab active
+        }, 30000);
+    </script>
+</body>
+</html>

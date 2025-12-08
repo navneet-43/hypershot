@@ -1,0 +1,17 @@
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz.env
+*.log
+
+# Large files
+*.mp4
+*.mov
+*.avi
+server/tmp/
+temp/
+*.log
+.local/
+.config/

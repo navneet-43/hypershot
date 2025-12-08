@@ -1,0 +1,23 @@
+{
+    "message": "Failed to publish",
+    "error": "Video upload failed (0.0MB). Here's how to fix it:\n\n🎯 TARGET: Reduce to 0.0009456634521484375MB (60% compression)\n\n📝 STEPS:\n1. Reduce video resolution (if currently 1080p, try 720p)\n2. Lower bitrate to 2-4 Mbps for good quality\n3. Trim unnecessary parts from beginning/end\n4. Use efficient codec (H.264 for video, AAC for audio)\n5. Export as MP4 format for best compatibility\n\n🔧 RECOMMENDED TOOLS:\n• HandBrake (Windows/Mac/Linux): Download HandBrake → Open video → Preset: 'Fast 720p30' → Adjust quality to RF 23-25 → Start encode\n• CloudConvert (Online): Visit cloudconvert.com → Upload video → Choose MP4 → Settings: 720p, 3Mbps bitrate → Convert\n\n🚀 QUICK ALTERNATIVES:\n• YouTube: Upload to YouTube and share the link in Facebook posts\n• Vimeo: Professional video hosting with privacy controls\n",
+    "post": {
+        "id": 142,
+        "userId": 3,
+        "accountId": 5,
+        "content": "CHOLE BHATURE KHAO OR LE JAO 5100 | CHALLENGE DELHI STREET FOOD",
+        "mediaUrl": "https://drive.google.com/file/d/1NfzQIcNQ4Bz3UA5MGrvqfspoLerQAMVT/view?usp=drive_link",
+        "mediaType": "video",
+        "link": "",
+        "labels": [
+            "2"
+        ],
+        "language": "hi",
+        "scheduledFor": null,
+        "publishedAt": null,
+        "status": "failed",
+        "sheetRowId": null,
+        "errorMessage": "Video upload failed (0.0MB). Here's how to fix it:\n\n🎯 TARGET: Reduce to 0.0009456634521484375MB (60% compression)\n\n📝 STEPS:\n1. Reduce video resolution (if currently 1080p, try 720p)\n2. Lower bitrate to 2-4 Mbps for good quality\n3. Trim unnecessary parts from beginning/end\n4. Use efficient codec (H.264 for video, AAC for audio)\n5. Export as MP4 format for best compatibility\n\n🔧 RECOMMENDED TOOLS:\n• HandBrake (Windows/Mac/Linux): Download HandBrake → Open video → Preset: 'Fast 720p30' → Adjust quality to RF 23-25 → Start encode\n• CloudConvert (Online): Visit cloudconvert.com → Upload video → Choose MP4 → Settings: 720p, 3Mbps bitrate → Convert\n\n🚀 QUICK ALTERNATIVES:\n• YouTube: Upload to YouTube and share the link in Facebook posts\n• Vimeo: Professional video hosting with privacy controls\n",
+        "createdAt": "2025-06-18T05:31:31.764Z"
+    }
+}
