@@ -73,13 +73,19 @@ export async function seedDefaultAdmin() {
   }
 }
 
-// Run the seed when this file is executed directly
-seedDefaultAdmin()
-  .then(() => {
-    console.log("✅ Seeding completed successfully!");
-    process.exit(0);
-  })
-  .catch((error) => {
-    console.error("❌ Seeding failed:", error);
-    process.exit(1);
-  });
+// Only run the seed when this file is executed directly (not when imported)
+import { fileURLToPath } from 'url';
+
+const isMainModule = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
+
+if (isMainModule) {
+  seedDefaultAdmin()
+    .then(() => {
+      console.log("✅ Seeding completed successfully!");
+      process.exit(0);
+    })
+    .catch((error) => {
+      console.error("❌ Seeding failed:", error);
+      process.exit(1);
+    });
+}
