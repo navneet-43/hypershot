@@ -1,28 +1,13 @@
 node_modules
 dist
 .DS_Store
-server/public
-vite.config.ts.*
-*.tar.gz
-
-# Environment files - NEVER commit these!
-.env
-.env.local
-.env.production
-
-# Log files
 *.log
-pglite-debug.log
 
-# Large media files
-*.mp4
-*.mov
-*.avi
-
-# Temp directories
+# Temp video files (runtime generated, not needed for deployment)
 server/tmp/
-temp/
+temp/fb_videos/
+temp/fb_reels/
 
-# Local/config directories
+# Replit specific (not needed)
 .local/
 .config/
