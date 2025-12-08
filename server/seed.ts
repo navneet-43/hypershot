@@ -73,19 +73,7 @@ export async function seedDefaultAdmin() {
   }
 }
 
-// Only run the seed when this file is executed directly (not when imported)
-import { fileURLToPath } from 'url';
-
-const isMainModule = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
-
-if (isMainModule) {
-  seedDefaultAdmin()
-    .then(() => {
-      console.log("✅ Seeding completed successfully!");
-      process.exit(0);
-    })
-    .catch((error) => {
-      console.error("❌ Seeding failed:", error);
-      process.exit(1);
-    });
-}
+// This function is exported and called by:
+// 1. Build command: npx tsx server/seed.ts (run-seed.ts)
+// 2. Server startup: index.ts calls seedDefaultAdmin()
+// Do NOT add auto-run code here as it gets bundled into the server
