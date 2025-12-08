@@ -14,15 +14,29 @@ interface FacebookProfile {
 export function setupAuth() {
   // Dynamically determine the callback URL based on environment
   const getCallbackURL = () => {
-    // Check if we're in production vs development
-    const replitDomains = process.env.REPLIT_DOMAINS;
-    if (replitDomains) {
-      // In production, REPLIT_DOMAINS contains the actual domain
-      const domains = replitDomains.split(',');
-      const callbackURL = `https://${domains[0]}/auth/facebook/callback`;
-      console.log(`🔧 Facebook OAuth Callback URL: ${callbackURL}`);
+    // Check for custom APP_URL first (set this in Render environment)
+    if (process.env.APP_URL) {
+      const callbackURL = `${process.env.APP_URL}/auth/facebook/callback`;
+      console.log(`🔧 Facebook OAuth Callback URL (APP_URL): ${callbackURL}`);
       return callbackURL;
     }
+    
+    // Check for Render's external URL
+    if (process.env.RENDER_EXTERNAL_URL) {
+      const callbackURL = `${process.env.RENDER_EXTERNAL_URL}/auth/facebook/callback`;
+      console.log(`🔧 Facebook OAuth Callback URL (Render): ${callbackURL}`);
+      return callbackURL;
+    }
+    
+    // Check for Replit domains
+    const replitDomains = process.env.REPLIT_DOMAINS;
+    if (replitDomains) {
+      const domains = replitDomains.split(',');
+      const callbackURL = `https://${domains[0]}/auth/facebook/callback`;
+      console.log(`🔧 Facebook OAuth Callback URL (Replit): ${callbackURL}`);
+      return callbackURL;
+    }
+    
     // Fallback to localhost for local development
     const port = process.env.PORT || 3000;
     const fallbackURL = `http://localhost:${port}/auth/facebook/callback`;
