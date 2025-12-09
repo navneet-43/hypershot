@@ -667,7 +667,7 @@ export default function InstagramCsvImport() {
                               <td className="px-3 py-2 text-gray-600">
                                 <div className="flex flex-wrap gap-1">
                                   {labels ? (
-                                    labels.split(',').map((label: string, idx: number) => (
+                                    String(labels).split(',').map((label: string, idx: number) => (
                                       <span
                                         key={idx}
                                         className="inline-block px-2 py-1 text-xs bg-pink-100 text-pink-800 rounded-full"
