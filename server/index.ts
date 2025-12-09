@@ -123,11 +123,16 @@ app.use((req, res, next) => {
       // Seed default admin user
       await seedDefaultAdmin();
       
-      // Initialize keep-alive service first to prevent sleep
-      await KeepAliveService.initialize();
-      
-      // Initialize system monitoring
-      await SystemMonitoringService.initialize();
+      // Only initialize Replit-specific services when on Replit (to save memory on other platforms)
+      const isReplit = !!process.env.REPLIT_DOMAINS;
+      if (isReplit) {
+        // Initialize keep-alive service to prevent Replit sleep
+        await KeepAliveService.initialize();
+        // Initialize system monitoring
+        await SystemMonitoringService.initialize();
+      } else {
+        console.log('⏭️ Skipping Replit-specific services (KeepAlive, SystemMonitoring) - not on Replit');
+      }
       
       // Initialize reliable scheduling system (replaces old scheduling)
       await ReliableSchedulingService.initialize();

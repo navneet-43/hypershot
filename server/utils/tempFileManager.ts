@@ -36,7 +36,7 @@ class TempFileManager {
   ];
   private readonly maxTotalBytes = 5 * 1024 * 1024 * 1024; // 5GB limit
   private readonly defaultTtlMs = 15 * 60 * 1000; // 15 minutes - safe for large uploads
-  private readonly sweepIntervalMs = 30 * 1000; // 30 seconds sweep interval
+  private readonly sweepIntervalMs = 5 * 60 * 1000; // 5 minutes sweep interval (reduced frequency to save memory)
 
   constructor() {
     this.startBackgroundSweeper();
