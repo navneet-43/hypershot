@@ -89,19 +89,23 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <i className="fa-brands fa-instagram w-5"></i>
             <span className="ml-3">Instagram Accounts</span>
           </Link>
+          {/* HIDDEN TEMPORARILY - Google Sheets Integration
           <Link href="/google-sheets-integration" onClick={onClose} className={`flex items-center px-4 py-3 ${isActive('/google-sheets-integration') ? 'text-fb-blue bg-fb-light-gray border-l-4 border-fb-blue' : 'text-gray-600 hover:bg-fb-light-gray'}`}>
               <i className="fa-solid fa-table w-5"></i>
               <span className="ml-3">Google Sheets Integration</span>
           </Link>
+          */}
           <Link href="/excel-import" onClick={onClose} className={`flex items-center px-4 py-3 ${isActive('/excel-import') ? 'text-fb-blue bg-fb-light-gray border-l-4 border-fb-blue' : 'text-gray-600 hover:bg-fb-light-gray'}`}>
             <i className="fa-solid fa-file-excel w-5"></i>
             <span className="ml-3">Excel Import</span>
           </Link>
 
+          {/* HIDDEN TEMPORARILY - Custom Labels
           <Link href="/custom-labels" onClick={onClose} className={`flex items-center px-4 py-3 ${isActive('/custom-labels') ? 'text-fb-blue bg-fb-light-gray border-l-4 border-fb-blue' : 'text-gray-600 hover:bg-fb-light-gray'}`}>
             <i className="fa-solid fa-tag w-5"></i>
             <span className="ml-3">Custom Labels</span>
           </Link>
+          */}
           <Link href="/settings" onClick={onClose} className={`flex items-center px-4 py-3 ${isActive('/settings') ? 'text-fb-blue bg-fb-light-gray border-l-4 border-fb-blue' : 'text-gray-600 hover:bg-fb-light-gray'}`}>
             <i className="fa-solid fa-gear w-5"></i>
             <span className="ml-3">Settings</span>

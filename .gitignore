@@ -11,3 +11,4 @@ temp/fb_reels/
 # Replit specific (not needed)
 .local/
 .config/
+config.bat
